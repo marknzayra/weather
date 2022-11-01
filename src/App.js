@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/Header.jsx";
+import Input from "./components/Input.jsx";
+import CurrentWeather from "./components/CurrentWeather";
+import React, { useState } from "react";
+export default function App() {
+  const [data, setData] = useState([]);
+  console.log("From App.js: ", data);
 
-function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Input setData={setData} />
+      <CurrentWeather data={data} />
     </div>
   );
 }
-
-export default App;
